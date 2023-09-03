@@ -1,0 +1,61 @@
+.container-toolbar{
+  display:flex ;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-icon {
+  cursor: pointer;
+}
+
+.search-input-container {
+  display: none;
+}
+
+.show .search-input-container {
+  display: block;
+}
+
+.title-menu{
+  display:flex ;
+  align-items: center;
+}
+
+.search-icon{
+  display:flex ;
+  align-items: center;
+}
+
+.search-bar{
+  display:flex ;
+
+  flex-direction: row;
+}
+
+
+.mat-input-container {
+  width: 100%;
+  padding-right: 30px;
+  display:flex ;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-input-element {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.mat-input-element:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.mat-input-element:hover {
+  color: #fff;
+  cursor: pointer;
+}
+

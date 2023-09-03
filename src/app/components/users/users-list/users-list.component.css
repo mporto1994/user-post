@@ -1,0 +1,30 @@
+.user-cards{
+  position: absolute;
+  top:64px;
+  z-index: 100;
+  width: 100%;
+  padding-top:20px;
+}
+
+.user-card {
+  margin-inline:50px;
+  border: 1px solid #ddd;
+  padding: 0px 0 16px 16px;
+  margin-bottom: 16px;
+  background-color: #f9f9f9;
+}
+
+.user-card-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-card-options{
+  display: flex;
+  align-items: center;
+}
+
+.user-name{
+  vertical-align: middle;
+  margin: 0%;
+}

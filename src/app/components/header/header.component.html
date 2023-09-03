@@ -1,0 +1,18 @@
+<mat-toolbar class="container-toolbar" color="primary">
+  <div class = "title-menu">
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{ pageTitle }}</span>
+  </div>
+   <div class="search-bar">
+      <div class="mat-input-container" *ngIf="isSearchVisible">
+        <input matInput class="mat-input-element" [(ngModel)]="searchQuery" (input)="search()" placeholder="Pesquisar...">
+      </div>
+      <div mat-icon-button class="search-icon" (click)="toggleSearch()">
+        <button mat-icon-button class="custom-button">
+          <mat-icon [class.show]="isSearchVisible">search</mat-icon>
+        </button>
+      </div>
+  </div>
+</mat-toolbar>

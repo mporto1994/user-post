@@ -1,0 +1,20 @@
+<div class="post-cards">
+  <div *ngFor="let post of posts" class="post-card">
+    <div class = "post-card-top">
+      <div class="post-cards-header">
+        <mat-icon>person</mat-icon>
+        <h3 class="user-name">{{ post.user }}</h3>
+      </div>
+      <div class = "post-card-options">
+        <button mat-icon-button (click)="openPostDeletionConfirmation(post.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="post-info">
+      <h3>{{ post.title }}</h3>
+      <p>Email: {{ post.body }}</p>
+    </div>
+  </div>
+  <app-page-navigation [currentPage]="pageNumber" (navigate)="onPageChange($event)"></app-page-navigation>
+</div>

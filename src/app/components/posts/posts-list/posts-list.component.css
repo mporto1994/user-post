@@ -1,0 +1,35 @@
+.post-cards{
+  position: absolute;
+  top:64px;
+  z-index: 1;
+  width: 100%;
+  padding-top:20px;
+
+}
+
+.post-card {
+  z-index: 1;
+  margin-inline:50px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #f9f9f9;
+}
+
+.post-cards-header{
+  display: flex;
+}
+
+.user-name{
+  margin-left: 15px;
+}
+
+.post-card-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.post-card-options{
+  display: flex;
+  align-items: center;
+}

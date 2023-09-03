@@ -1,0 +1,16 @@
+<div class="user-cards">
+  <div *ngFor="let user of users" class="user-card" [ngClass]="{'menu-open': isSidenavOpened()}">
+    <div class="user-info">
+      <div class = "user-card-top">
+        <h3 class ="user-name">{{ user.name }}</h3>
+        <div class = "user-card-options">
+          <button mat-icon-button (click)="openUserDeletionConfirmation(user.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <p>Email: {{ user.email }}</p>
+    </div>
+  </div>
+  <app-page-navigation [currentPage]="pageNumber" (navigate)="onPageChange($event)"></app-page-navigation>
+</div>

@@ -1,0 +1,39 @@
+:root {
+  --sidebar-width: 500px;
+  --sidebar-background: #333;
+  --sidebar-text-color: #fff;
+  --sidebar-link-hover-color: #555;
+}
+
+.sidenav-container-open {
+  z-index: 1000;
+  background-color: var(--sidebar-background);
+  width: var(--sidebar-width);
+  height: 100%;
+  color: var(--sidebar-text-color);
+}
+
+.sidenav-container-close {
+  z-index: 1;
+  background-color: var(--sidebar-background);
+  width: var(--sidebar-width);
+  height: 100%;
+  color: var(--sidebar-text-color);
+}
+
+.sidenav {
+  color: #fff;
+  padding: 20px;
+}
+
+.mat-nav-list a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.mat-nav-list a:hover {
+  background-color: #555;
+}
