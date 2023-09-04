@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { PageTitleService } from 'src/app/services/page-title.service';
 import { SidenavService } from '../../services/sidenav.service';
-import { Router } from '@angular/router';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   pageTitle = '';
-  searchTerm: string = '';
   isSearchVisible = false;
   searchQuery = '';
 
@@ -19,7 +18,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private pageTitleService: PageTitleService,
     private sidenavService: SidenavService,
-    private router: Router
+    private searchService: SearchService
   ) { }
 
   ngOnInit(): void {
@@ -28,29 +27,22 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  updateSearchTerm(term: string) {
+    this.searchService.setSearchTerm(term);
+  }
   toggleSidenav() {
     this.sidenavService.toggle();
   }
 
   toggleSearch() {
-    console.log('toggleSearch');
-    // if (!this.isSearchVisible) {
-    //   this.searchQuery = '';
-    // }
+    if (this.isSearchVisible) {
+      this.search();
+    }
     this.isSearchVisible = !this.isSearchVisible;
   }
 
-  search(): void {
-    // Determine a página atual com base na rota atual
-    const currentPage = this.router.url.includes('/users') ? 'users' : 'posts';
-
-    // Execute a pesquisa na página atual
-    if (currentPage === 'users') {
-      // Execute a pesquisa de usuários usando this.searchTerm
-      // Exemplo: this.userService.searchUsers(this.searchTerm).subscribe(...);
-    } else {
-      // Execute a pesquisa de postagens usando this.searchTerm
-      // Exemplo: this.postService.searchPosts(this.searchTerm).subscribe(...);
-    }
+  search() {
+    this.searchService.setSearchTerm(this.searchQuery);
   }
+
 }

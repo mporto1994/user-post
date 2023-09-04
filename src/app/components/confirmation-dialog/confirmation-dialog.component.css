@@ -1,34 +1,28 @@
-/* confirmation-dialog.component.css */
 
-/* Estilo para o conteúdo do diálogo */
 mat-dialog-content {
   font-size: 16px;
   padding: 16px;
   text-align: center;
-  background-color: #f5f0ff; /* Fundo roxo claro */
+  background-color: #f5f0ff;
 }
 
-/* Estilo para os botões de ação do diálogo */
 mat-dialog-actions {
   justify-content: center;
   padding: 16px;
-  background-color: #f5f0ff; /* Fundo roxo claro */
+  background-color: #f5f0ff;
 }
 
-/* Estilo para o botão "Cancelar" */
 button.mat-button {
-  background-color: #bbb; /* Cor de fundo do botão "Cancelar" */
-  color: #333; /* Cor do texto do botão "Cancelar" */
-  margin-right: 8px; /* Espaçamento à direita */
+  background-color: #bbb;
+  color: #333;
+  margin-right: 8px;
 }
 
-/* Estilo para o botão "Confirmar" */
 button.mat-button.mat-dialog-close {
-  background-color: #6a5acd; /* Cor de fundo do botão "Confirmar" (tom de roxo) */
-  color: #fff; /* Cor do texto do botão "Confirmar" */
+  background-color: #6a5acd;
+  color: #fff;
 }
 
-/* Estilo de hover para os botões */
 button.mat-button:hover {
-  filter: brightness(0.9); /* Escurecer o botão ao passar o mouse */
+  filter: brightness(0.9);
 }

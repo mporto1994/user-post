@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { User } from 'src/app/models/user.model';
 import { PageTitleService } from 'src/app/services/page-title.service';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { SidenavService } from 'src/app/services/sidenav.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
@@ -16,7 +16,12 @@ export class UsersListComponent implements OnInit {
   users: User[] = [];
   pageTitle = 'Lista de Usuários';
   pageNumber = 1;
+
   private userSubscription: Subscription = new Subscription();
+  private searchTermSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private currentSearchTerm: string = '';
+
+  public searchTerm$: Observable<string> = this.searchTermSubject.asObservable();
 
   constructor(
     private userService: UserService,
@@ -25,13 +30,26 @@ export class UsersListComponent implements OnInit {
     private dialog: MatDialog
   ) { }
 
+  search(term: string): void {
+    this.currentSearchTerm = term;
+
+    this.searchTermSubject.next(this.currentSearchTerm);
+
+    this.loadUsers(1, term);
+  }
+
   ngOnInit(): void {
     this.pageTitleService.setPageTitle('Lista de Usuários');
     this.loadUsers(this.pageNumber);
+    this.searchTerm$.subscribe((term) => {
+      this.loadUsers(1, term);
+    });
+
+    this.loadUsers(1, this.currentSearchTerm);
   }
 
-  loadUsers(page: number): void {
-    this.userSubscription = this.userService.getUsers(page).subscribe(
+  loadUsers(page?: number, search?: string): void {
+    this.userSubscription = this.userService.getUsers(page, search).subscribe(
       (users) => {
         this.users = users;
       },
@@ -75,9 +93,4 @@ export class UsersListComponent implements OnInit {
     this.loadUsers(page);
   }
 
-  ngOnDestroy(): void {
-    if (this.userSubscription) {
-      this.userSubscription.unsubscribe();
-    }
-  }
 }

@@ -28,7 +28,7 @@ export interface GetUser {
 
 export interface ApiResponse<T> {
   code: number;
-  data: T | null; // Use T como tipo genérico para os dados
-  meta?: any; // Outros metadados da resposta
-  error?: string; // Mensagem de erro em caso de falha
+  data: T | null;
+  meta?: any;
+  error?: string;
 }

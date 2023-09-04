@@ -19,7 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { PageNavigationComponent } from './components/page-navigation/page-navigation.component';
-
+import { CommonModule } from '@angular/common';
+import { ModalComponent } from './components/modal-content/modal-content.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PageNavigationComponent } from './components/page-navigation/page-navig
     HeaderComponent,
     ConfirmationDialogComponent,
     PageNavigationComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { PageNavigationComponent } from './components/page-navigation/page-navig
     MatListModule,
     FormsModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

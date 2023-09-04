@@ -12,7 +12,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(page?: number): Observable<User[]> {
+  getUsers(page?: number, search?: string): Observable<User[]> {
     const pageSize = 15;
     const url = `${this.baseUrl}/users?page=${page}&per_page=${pageSize}`;
 
